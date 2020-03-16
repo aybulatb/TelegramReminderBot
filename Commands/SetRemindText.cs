@@ -9,7 +9,7 @@ namespace ReminderTelegramBot.Commands
 {
     public class SetRemindText : TelegramCommand
     {
-        public override string Name => "Текст напоминания";
+        public override string Name => "Напоминания";
 
         public override bool Contains(Message message)
         {
@@ -32,7 +32,7 @@ namespace ReminderTelegramBot.Commands
                     },
                     new[]
                     {
-                        new KeyboardButton("\U0001F451 Текст напоминания")
+                        new KeyboardButton("\U0001F451 Напоминания")
                     },
                     new []
                     {
