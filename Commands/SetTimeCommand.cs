@@ -17,7 +17,7 @@ namespace ReminderTelegramBot.Commands
             throw new NotImplementedException();
         }
 
-        public override Task Execute(MessageEventArgs e, TelegramBotClient client)
+        public override Task Execute(Message mes, ITelegramBotClient client)
         {
             throw new NotImplementedException();
         }

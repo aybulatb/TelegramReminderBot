@@ -9,7 +9,7 @@ namespace ReminderTelegramBot.Commands
 {
     public class Hello : TelegramCommand
     {
-        public override string Name => "Поздороваться";
+        public override string Name => "\U0001F3E0 Поздороваться";
 
         public override bool Contains(Message message)
         {
@@ -19,9 +19,9 @@ namespace ReminderTelegramBot.Commands
             return message.Text.Contains(Name);
         }
 
-        public override async Task Execute(MessageEventArgs e, TelegramBotClient client)
+        public override async Task Execute(Message mes, ITelegramBotClient client)
         {
-            var chatId = e.Message.Chat.Id;
+            var chatId = mes.Chat.Id;
 
             var keyBoard = new ReplyKeyboardMarkup
             {
