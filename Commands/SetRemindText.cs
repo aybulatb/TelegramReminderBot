@@ -9,7 +9,7 @@ namespace ReminderTelegramBot.Commands
 {
     public class SetRemindText : TelegramCommand
     {
-        public override string Name => "Текст напоминания";
+        public override string Name => "\U0001F451 Напоминания";
 
         public override bool Contains(Message message)
         {
@@ -19,9 +19,9 @@ namespace ReminderTelegramBot.Commands
             return message.Text.Contains(Name);
         }
 
-        public override async Task Execute(MessageEventArgs e, TelegramBotClient client)
+        public override async Task Execute(Message mes, ITelegramBotClient client)
         {
-            var chatId = e.Message.Chat.Id;
+            var chatId = mes.Chat.Id;
             var keyBoard = new ReplyKeyboardMarkup
             {
                 Keyboard = new[]
@@ -32,7 +32,7 @@ namespace ReminderTelegramBot.Commands
                     },
                     new[]
                     {
-                        new KeyboardButton("\U0001F451 Текст напоминания")
+                        new KeyboardButton("\U0001F451 Напоминания")
                     },
                     new []
                     {
@@ -40,7 +40,7 @@ namespace ReminderTelegramBot.Commands
                     }
                 }
             };
-            string remindText = e.Message.Text;
+            string remindText = mes.Text;
 
             await client.SendTextMessageAsync(chatId, $"Вы просили напомнить: {remindText}", ParseMode.Html, false, false, 0, keyBoard); 
         }
