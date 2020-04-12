@@ -1,15 +1,15 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Telegram.Bot;
-using Telegram.Bot.Args;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
 
 namespace ReminderTelegramBot.Commands
 {
-    public class SetRemindText : TelegramCommand
+    public class CheckDate : TelegramCommand
     {
-        public override string Name => "\U0001F451 Напоминания";
+        public override string Name => "Дата";
 
         public override bool Contains(Message message)
         {
@@ -22,27 +22,29 @@ namespace ReminderTelegramBot.Commands
         public override async Task Execute(Message mes, ITelegramBotClient client)
         {
             var chatId = mes.Chat.Id;
+
             var keyBoard = new ReplyKeyboardMarkup
             {
                 Keyboard = new[]
                 {
                     new[]
                     {
-                        new KeyboardButton("\U0001F3E0 Поздороваться")
+                        new KeyboardButton("Здарова")
                     },
                     new[]
                     {
-                        new KeyboardButton("\U0001F451 Напоминания")
+                        new KeyboardButton("Напомнить")
                     },
                     new []
                     {
-                        new KeyboardButton("\U0001F45C Время напоминания")
+                        new KeyboardButton("Дата")
                     }
                 }
             };
-            string remindText = mes.Text;
 
-            await client.SendTextMessageAsync(chatId, $"Вы просили напомнить: {remindText}", ParseMode.Html, false, false, 0, keyBoard); 
+            await client.SendTextMessageAsync(chatId, $"{DateTime.Now}", 
+                                                parseMode: ParseMode.Markdown, replyMarkup: keyBoard);
+
         }
     }
 }

@@ -1,15 +1,12 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using ReminderTelegramBot.Services;
 using Newtonsoft.Json.Serialization;
+using ReminderTelegramBot.Services;
 
 namespace ReminderTelegramBot
 {
@@ -24,11 +21,20 @@ namespace ReminderTelegramBot
         {
             services.AddScoped<ITelegramCommandsService, TelegramCommandsService>()
                     .AddTelegramBotClient(_configuration)
-                    .AddControllers();
+                    .AddControllers()
+                    .AddNewtonsoftJson(options =>
+                    {
+                        options.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
+                        options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+                    })
+                    .AddFluentValidation();
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider provider)
         {
-            app.UseDeveloperExceptionPage();
+            if (env.IsDevelopment())
+            { 
+                app.UseDeveloperExceptionPage();
+            }
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>

@@ -13,8 +13,8 @@ namespace ReminderTelegramBot.Services
         {
             _commands = new List<TelegramCommand>
             {
-                new SetTimeCommand(),
-                new SetRemindText(),
+                new CheckDate(),
+                new SetRemind(),
                 new Hello()
             };
         }
