@@ -7,9 +7,9 @@ using Telegram.Bot.Types.ReplyMarkups;
 
 namespace ReminderTelegramBot.Commands
 {
-    public class Hello : TelegramCommand
+    public class SetRemind : TelegramCommand
     {
-        public override string Name { get; } = "Здарова";
+        public override string Name { get; } = "Напомнить";
 
         public override bool Contains(Message message)
         {
@@ -22,7 +22,6 @@ namespace ReminderTelegramBot.Commands
         public override async Task Execute(Message mes, ITelegramBotClient client)
         {
             var chatId = mes.Chat.Id;
-
             var keyBoard = new ReplyKeyboardMarkup
             {
                 Keyboard = new[]
@@ -41,10 +40,17 @@ namespace ReminderTelegramBot.Commands
                     }
                 }
             };
+            await client.SendTextMessageAsync(chatId, "О чём вам напомнить?");
 
-            await client.SendTextMessageAsync(chatId, "Ну здорова, бродяга. Я твой бот, и в благородство играть не буду" +
-                                                      "Нажмёшь на пару моих кнопок - и мы в расчёте.", 
-                                                      parseMode: ParseMode.Markdown, replyMarkup: keyBoard);
+            Message message = new Message();
+            string remindText = message.Text;
+
+            if(remindText != null)
+                await client.SendTextMessageAsync(chatId, $"Окей, {remindText}", 
+                                                parseMode: ParseMode.Markdown, replyMarkup: keyBoard);
+            else
+                await client.SendTextMessageAsync(chatId, $"Вы ничего не ввели, попробуйте снова",
+                                                parseMode: ParseMode.Markdown, replyMarkup: keyBoard);
         }
     }
 }

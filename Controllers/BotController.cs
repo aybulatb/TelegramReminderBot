@@ -24,16 +24,18 @@ namespace ReminderTelegramBot.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]Update update)
         {
-            if (update == null) 
+            if (update == null)
                 return Ok();
 
+            var commands = _telegramService.GetCommands();
             var message = update.Message;
 
-            foreach (var commands in _telegramService.GetCommands())
+
+            foreach (var command in commands)
             {
-                if (commands.Contains(message))
+                if (command.Contains(message))
                 {
-                    await commands.Execute(message, _telegramBotClient);
+                    await command.Execute(message, _telegramBotClient);
                     break;
                 }
             }
@@ -43,7 +45,7 @@ namespace ReminderTelegramBot.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok("Started");
+            return Ok("Started test");
         }
     }
 }
