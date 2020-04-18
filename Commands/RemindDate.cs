@@ -6,9 +6,9 @@ using Telegram.Bot.Types.ReplyMarkups;
 
 namespace ReminderTelegramBot.Commands
 {
-    public class SetRemind : TelegramCommand
+    public class RemindDate : TelegramCommand
     {
-        public override string Name => "/напомнить";
+        public override string Name => "/time";
 
         public override async Task Execute(Message message, ITelegramBotClient client)
         {
@@ -24,10 +24,7 @@ namespace ReminderTelegramBot.Commands
                 },
             };
 
-            var text = message.Text.Remove(0, Name.Length);
-            var remind = new Remind(text);
-
-            await client.SendTextMessageAsync(chatId, $"Окей, ", parseMode: ParseMode.Markdown, replyMarkup: keyBoard);
+            await client.SendTextMessageAsync(chatId, $"Время", parseMode: ParseMode.Markdown, replyMarkup: keyBoard);
         }
     }
 }

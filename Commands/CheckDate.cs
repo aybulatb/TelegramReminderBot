@@ -9,19 +9,11 @@ namespace ReminderTelegramBot.Commands
 {
     public class CheckDate : TelegramCommand
     {
-        public override string Name => "Дата";
+        public override string Name => "/date";
 
-        public override bool Contains(Message message)
+        public override async Task Execute(Message message, ITelegramBotClient client)
         {
-            if (message.Type != MessageType.Text)
-                return false;
-
-            return message.Text.Contains(Name);
-        }
-
-        public override async Task Execute(Message mes, ITelegramBotClient client)
-        {
-            var chatId = mes.Chat.Id;
+            var chatId = message.Chat.Id;
 
             var keyBoard = new ReplyKeyboardMarkup
             {
@@ -29,17 +21,9 @@ namespace ReminderTelegramBot.Commands
                 {
                     new[]
                     {
-                        new KeyboardButton("Здарова")
-                    },
-                    new[]
-                    {
-                        new KeyboardButton("Напомнить")
-                    },
-                    new []
-                    {
-                        new KeyboardButton("Дата")
+                        new KeyboardButton("/help")
                     }
-                }
+                },
             };
 
             await client.SendTextMessageAsync(chatId, $"{DateTime.Now}", 
