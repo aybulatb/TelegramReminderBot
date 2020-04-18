@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Telegram.Bot;
 using Telegram.Bot.Types;
-using Telegram.Bot.Types.Enums;
 
 namespace ReminderTelegramBot.Controllers
 {
@@ -25,7 +21,7 @@ namespace ReminderTelegramBot.Controllers
         public async Task<IActionResult> Post([FromBody]Update update)
         {
             if (update == null)
-                return Ok();
+                return Ok("update = null");
 
             var commands = _telegramService.GetCommands();
             var message = update.Message;
@@ -39,7 +35,7 @@ namespace ReminderTelegramBot.Controllers
                     break;
                 }
             }
-            return Ok();
+            return Ok("update = ok");
         }
 
         [HttpGet]

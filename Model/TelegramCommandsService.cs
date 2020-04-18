@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using ReminderTelegramBot.Commands;
 
 namespace ReminderTelegramBot.Services
@@ -15,7 +12,9 @@ namespace ReminderTelegramBot.Services
             {
                 new CheckDate(),
                 new SetRemind(),
-                new Hello()
+                new Hello(),
+                new RemindDate(),
+                new Help()
             };
         }
         public List<TelegramCommand> GetCommands()
