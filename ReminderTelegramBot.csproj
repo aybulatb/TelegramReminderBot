@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abstractions\" />
+    <Folder Include="Model\Abstractions\" />
   </ItemGroup>
 
   <ItemGroup>
