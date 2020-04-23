@@ -24,6 +24,9 @@ namespace ReminderTelegramBot.Commands
                 },
             };
 
+            var remind = new Reminder();
+            var remindTime = remind.GetRemindTime(message.Text.Remove(Name.Length));
+
             await client.SendTextMessageAsync(chatId, $"Время", parseMode: ParseMode.Markdown, replyMarkup: keyBoard);
         }
     }

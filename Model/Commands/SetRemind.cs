@@ -24,8 +24,8 @@ namespace ReminderTelegramBot.Commands
                 },
             };
 
-            var text = message.Text.Remove(0, Name.Length);
-            var remind = new Remind(text);
+            var remind = new Reminder();
+            var remindText = remind.GetRemindText(message.Text.Remove(Name.Length));
 
             await client.SendTextMessageAsync(chatId, $"Окей, ", parseMode: ParseMode.Markdown, replyMarkup: keyBoard);
         }
