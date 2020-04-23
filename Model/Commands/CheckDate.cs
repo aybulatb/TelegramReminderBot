@@ -25,8 +25,9 @@ namespace ReminderTelegramBot.Commands
                     }
                 },
             };
+            var now = DateTime.Now;
 
-            await client.SendTextMessageAsync(chatId, $"{DateTime.Now}", 
+            await client.SendTextMessageAsync(chatId, $"{now.ToString("F")}", 
                                                 parseMode: ParseMode.Markdown, replyMarkup: keyBoard);
 
         }
