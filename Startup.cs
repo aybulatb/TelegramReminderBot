@@ -20,8 +20,9 @@ namespace ReminderTelegramBot
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<ITelegramCommandsService, TelegramCommandsService>()
-                    .AddTelegramBotClient(_configuration)
-                    .AddControllers()
+                    .AddTelegramBotClient(_configuration);
+
+            services.AddControllers()
                     .AddNewtonsoftJson(options =>
                     {
                         options.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
@@ -29,7 +30,7 @@ namespace ReminderTelegramBot
                     })
                     .AddFluentValidation();
         }
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider provider)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             { 

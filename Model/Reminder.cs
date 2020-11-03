@@ -7,7 +7,7 @@ using Telegram.Bot.Types;
 namespace ReminderTelegramBot
 {
     /// <summary>
-    /// Reminder object
+    /// Remind object
     /// </summary>
     public class Reminder
     {
@@ -18,10 +18,14 @@ namespace ReminderTelegramBot
         /// </summary>
         /// <param name="message"></param>
         /// <returns></returns>
-        public string GetRemindText(string messageText)
+        public string SetRemindText(string messageText)
         {
             Text = messageText;
             return Text;
+        }
+        public DateTime GetTime()
+        {
+            return DateTime;
         }
         /// <summary>
         /// Sets a time of remind

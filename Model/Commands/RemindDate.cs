@@ -24,10 +24,15 @@ namespace ReminderTelegramBot.Commands
                 },
             };
 
-            var remind = new Reminder();
-            var remindTime = remind.GetRemindTime(message.Text.Remove(Name.Length));
+            var reminder = new Reminder();
+            var remindTime = reminder.GetRemindTime(message.Text.Remove(Name.Length));
 
-            await client.SendTextMessageAsync(chatId, $"Время", parseMode: ParseMode.Markdown, replyMarkup: keyBoard);
+            await client.SendTextMessageAsync(chatId, $"Заказанное время {remindTime}, {reminder.GetTime()}", parseMode: ParseMode.Markdown, replyMarkup: keyBoard);
+            
+            if (reminder.CheckTime()) 
+            {
+                await client.SendTextMessageAsync(chatId, $"Вовремя {remindTime}, {reminder.GetTime()}", parseMode: ParseMode.Markdown, replyMarkup: keyBoard); 
+            }
         }
     }
 }
