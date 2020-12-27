@@ -4,7 +4,7 @@ using Telegram.Bot;
 
 namespace ReminderTelegramBot
 {
-    public static class ServiceExtensions
+    public static class ServiceCollectionExtensions
     {
         public static IServiceCollection AddTelegramBotClient(this IServiceCollection serviceCollection, IConfiguration config)
         { 

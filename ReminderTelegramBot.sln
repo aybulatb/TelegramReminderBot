@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReminderTelegramBot", "ReminderTelegramBot.csproj", "{83279BAC-1601-47AB-ACFC-C23CE03F16BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReminderTelegramBot", "ReminderTelegramBot.csproj", "{83279BAC-1601-47AB-ACFC-C23CE03F16BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0B68E15D-131B-4C37-AC80-170CE53F0FE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +20,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{83279BAC-1601-47AB-ACFC-C23CE03F16BE} = {0B68E15D-131B-4C37-AC80-170CE53F0FE7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2EF70396-E3C1-4EE6-ACEA-0AE79E52C049}

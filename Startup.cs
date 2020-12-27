@@ -1,5 +1,3 @@
-using System;
-using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -7,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json.Serialization;
 using ReminderTelegramBot.Services;
+using FluentValidation.AspNetCore;
 
 namespace ReminderTelegramBot
 {
