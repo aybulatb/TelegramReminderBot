@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace ReminderTelegramBot
+namespace ReminderTelegramBot.Model.Interfaces
 {
-    public interface ITelegramCommandsService
+    public interface ICommandsService
     {
         List<TelegramCommand> GetCommands();
     }

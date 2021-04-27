@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using ReminderTelegramBot.Commands;
+using ReminderTelegramBot.Model.Interfaces;
 
-namespace ReminderTelegramBot.Services
+namespace ReminderTelegramBot.Model
 {
-    public class TelegramCommandsService : ITelegramCommandsService
+    public class CommandsService : ICommandsService
     {
         private readonly List<TelegramCommand> _commands;
-        public TelegramCommandsService()
+        public CommandsService()
         {
             _commands = new List<TelegramCommand>
             {

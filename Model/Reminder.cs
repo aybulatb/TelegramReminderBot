@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Telegram.Bot.Types;
 
-namespace ReminderTelegramBot
+namespace ReminderTelegramBot.Model
 {
     /// <summary>
     /// Remind object

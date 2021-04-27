@@ -1,25 +1,20 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json.Serialization;
-using ReminderTelegramBot.Services;
 using FluentValidation.AspNetCore;
+using ReminderTelegramBot.Model.Interfaces;
+using ReminderTelegramBot.Model;
 
 namespace ReminderTelegramBot
 {
     public class Startup
     {
-        private readonly IConfiguration _configuration;
-        public Startup(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<ITelegramCommandsService, TelegramCommandsService>()
-                    .AddTelegramBotClient(_configuration);
+            services.AddScoped<ICommandsService, CommandsService>()
+                    .AddTelegramBotClient();
 
             services.AddControllers()
                     .AddNewtonsoftJson(options =>

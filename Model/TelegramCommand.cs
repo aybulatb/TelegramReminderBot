@@ -3,7 +3,7 @@ using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 
-namespace ReminderTelegramBot
+namespace ReminderTelegramBot.Model
 {
     public abstract class TelegramCommand
     {
