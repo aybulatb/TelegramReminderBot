@@ -14,7 +14,6 @@ namespace ReminderTelegramBot.Model
                 new CheckDate(),
                 new SetRemind(),
                 new Hello(),
-                new RemindDate(),
                 new Help()
             };
         }
