@@ -4,13 +4,14 @@ using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
 using ReminderTelegramBot.Model;
+using ReminderTelegramBot.Model.Interfaces;
 
 namespace ReminderTelegramBot.Commands
 {
     public class Hello : TelegramCommand
     {
         public override string Name => "/start";
-        public override async Task Execute(Message message, ITelegramBotClient client)
+        public override async Task Execute(Message message, ITelegramBotClient client, IReminderStore reminderStore)
         {
             var chatId = message.Chat.Id;
             var keyBoard = new ReplyKeyboardMarkup

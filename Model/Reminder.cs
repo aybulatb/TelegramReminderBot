@@ -1,53 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Telegram.Bot.Types;
 
 namespace ReminderTelegramBot.Model
 {
     /// <summary>
-    /// Remind object
+    /// Reminder object
     /// </summary>
+    /// /// TODO: сделать так, что бы при любом сообщении(с буквами, с символами и тд) выбиралось только время(цифры) и записывались корректно
     public class Reminder
     {
+        public readonly int Id;
         private string Text { get; set; }
         private DateTime DateTime { get; set; }
-        /// <summary>
-        /// Sets a description/text of remind
-        /// </summary>
-        /// <param name="message"></param>
-        /// <returns></returns>
-        public string SetRemindText(string messageText)
+
+        public Reminder(string text, DateTime dateTime)
         {
-            Text = messageText;
-            return Text;
+            Text = text;
+            DateTime = dateTime;
+
+            Id++;
         }
-        public DateTime GetTime()
-        {
-            return DateTime;
-        }
-        /// <summary>
-        /// Sets a time of remind
-        /// </summary>
-        /// <param name="message"></param>
-        /// <returns></returns>
-        /// TODO: сделать так, что бы при любом сообщении(с буквами, с символами и тд) выбиралось только время(цифры) и записывались корректно
-        public DateTime GetRemindTime(string messageText)
-        {
-            DateTime.TryParse(messageText, out DateTime remindTime);
-            DateTime = remindTime;
-            return remindTime;
-        }
-        
-        public bool CheckTime()
-        {
-            var time = GetRemindTime(Text);
-            while (DateTime.Now != time)
-            {
-                CheckTime();
-            }
-            return true;
-        }
+        public DateTime GetTime() => DateTime;
+        public string GetText() => Text;
+
+        //public bool CheckTime()
+        //{
+        //    while (DateTime.Now != DateTime)
+        //    {
+        //        CheckTime();
+        //    }
+        //    return true;
+        //}
     }
 }

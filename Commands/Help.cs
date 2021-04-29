@@ -3,6 +3,7 @@ using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.ReplyMarkups;
 using ReminderTelegramBot.Model;
+using ReminderTelegramBot.Model.Interfaces;
 
 namespace ReminderTelegramBot.Commands
 {
@@ -10,7 +11,7 @@ namespace ReminderTelegramBot.Commands
     {
         //todo Сделать отдельный метод GetKeyboardFor(string[] commands) который будет создавать кнопки
         public override string Name => "/help";
-        public override async Task Execute(Message message, ITelegramBotClient client)
+        public override async Task Execute(Message message, ITelegramBotClient client, IReminderStore reminderStore)
         {
             var chatId = message.Chat.Id;
 
@@ -22,7 +23,8 @@ namespace ReminderTelegramBot.Commands
                         new KeyboardButton("/help"), 
                         new KeyboardButton("/start"), 
                         new KeyboardButton("/напомнить"),
-                        new KeyboardButton("/date") 
+                        new KeyboardButton("/date"),
+                        new KeyboardButton("/все записи")
                     }
                 },
             };

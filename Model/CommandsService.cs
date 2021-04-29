@@ -12,9 +12,10 @@ namespace ReminderTelegramBot.Model
             _commands = new List<TelegramCommand>
             {
                 new CheckDate(),
-                new SetRemind(),
+                new SetReminder(),
                 new Hello(),
-                new Help()
+                new Help(),
+                new GetAllReminders()
             };
         }
         public List<TelegramCommand> GetCommands()

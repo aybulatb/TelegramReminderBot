@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using ReminderTelegramBot.Model.Interfaces;
+using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
@@ -8,7 +9,7 @@ namespace ReminderTelegramBot.Model
     public abstract class TelegramCommand
     {
         public abstract string Name { get; }
-        public abstract Task Execute(Message message, ITelegramBotClient client);
+        public abstract Task Execute(Message message, ITelegramBotClient client, IReminderStore reminderStore);
         public bool Contains(Message message)
         {
             if (message.Type != MessageType.Text)

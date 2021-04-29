@@ -16,6 +16,8 @@ namespace ReminderTelegramBot
             services.AddScoped<ICommandsService, CommandsService>()
                     .AddTelegramBotClient();
 
+            services.AddSingleton<IReminderStore, RemindersStore>();
+
             services.AddControllers()
                     .AddNewtonsoftJson(options =>
                     {

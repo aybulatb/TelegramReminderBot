@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
-using Telegram.Bot.Types.ReplyMarkups;
 using ReminderTelegramBot.Model;
+using ReminderTelegramBot.Model.Interfaces;
 
 namespace ReminderTelegramBot.Commands
 {
@@ -15,18 +15,11 @@ namespace ReminderTelegramBot.Commands
     {
         public override string Name => "/date";
 
-        public override async Task Execute(Message message, ITelegramBotClient client)
+        public override async Task Execute(Message message, ITelegramBotClient client, IReminderStore reminderStore)
         {
             var chatId = message.Chat.Id;
-            var keyBoard = new ReplyKeyboardMarkup
-            {
-                Keyboard = new[]
-                {
-                    new[] { new KeyboardButton("/help") }
-                },
-            };
-            await client.SendTextMessageAsync(chatId, $"{DateTime.Now:F}",
-                                                parseMode: ParseMode.Markdown, replyMarkup: keyBoard);
+
+            await client.SendTextMessageAsync(chatId, $"{DateTime.Now:F}", parseMode: ParseMode.Markdown);
         }
     }
 }
