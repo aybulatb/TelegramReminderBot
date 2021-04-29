@@ -14,7 +14,7 @@ namespace ReminderTelegramBot.Commands
         public override async Task Execute(Message message, ITelegramBotClient client, IReminderStore reminderStore)
         {
             var chatId = message.Chat.Id;
-            var text = message.Text.Remove(Name.Length);
+            var text = message.Text.Remove(0, Name.Length - 1);
             var date = BotHelper.AnalizeStringToDate(text);
 
             reminderStore.Set(new Reminder(text, date));
