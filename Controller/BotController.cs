@@ -47,7 +47,7 @@ namespace ReminderTelegramBot.Controllers
                     }
                     catch (System.Exception ex)
                     {
-                        _logger.LogError(ex.Message);
+                        _logger.LogError($"Ooops, some problems here: {ex.Message}");
                     }
                     break;
                 }
