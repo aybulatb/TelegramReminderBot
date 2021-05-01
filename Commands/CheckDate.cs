@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Types;
-using Telegram.Bot.Types.Enums;
 using ReminderTelegramBot.Model;
 using ReminderTelegramBot.Model.Interfaces;
 
@@ -13,13 +12,13 @@ namespace ReminderTelegramBot.Commands
     /// </summary>
     public class CheckDate : TelegramCommand
     {
-        public override string Name => "/date";
+        public override string Name => "/дата";
 
-        public override async Task Execute(Message message, ITelegramBotClient client, IReminderStore reminderStore)
+        public override async Task Execute(Message message, ITelegramBotClient client, IReminderStore reminderStore, CallbackQuery callbackQuery = null)
         {
             var chatId = message.Chat.Id;
 
-            await client.SendTextMessageAsync(chatId, $"{DateTime.Now:F}", parseMode: ParseMode.Markdown);
+            await client.SendTextMessageAsync(chatId, $"{DateTime.Now:F}");
         }
     }
 }

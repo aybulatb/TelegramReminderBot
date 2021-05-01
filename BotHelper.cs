@@ -1,17 +1,10 @@
-﻿using ReminderTelegramBot.Model;
-using System;
+﻿using System;
 using System.Text.RegularExpressions;
 
 namespace ReminderTelegramBot
 {
     public static class BotHelper
     {
-        //public static void AddRemindToList(Reminder reminder)
-        //{
-            
-
-        //}
-
         /// <summary>
         /// Ищет во входной строке время формата HH:mm
         /// </summary>

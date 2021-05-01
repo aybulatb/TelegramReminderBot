@@ -6,5 +6,6 @@ namespace ReminderTelegramBot.Model.Interfaces
     {
         void Set(Reminder reminder);
         List<Reminder> GetAll();
+        void ClearAll();
     }
 }

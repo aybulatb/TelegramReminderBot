@@ -15,7 +15,8 @@ namespace ReminderTelegramBot.Model
                 new SetReminder(),
                 new Hello(),
                 new Help(),
-                new GetAllReminders()
+                new GetAllReminders(),
+                new ClearAll()
             };
         }
         public List<TelegramCommand> GetCommands()

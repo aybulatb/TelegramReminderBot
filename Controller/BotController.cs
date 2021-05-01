@@ -16,8 +16,8 @@ namespace ReminderTelegramBot.Controllers
         private readonly ILogger<BotController> _logger;
         private readonly IReminderStore _reminderStore;
 
-        public BotController(ICommandsService telegramService, 
-            ITelegramBotClient telegramBotClient, 
+        public BotController(ICommandsService telegramService,
+            ITelegramBotClient telegramBotClient,
             ILogger<BotController> logger,
             IReminderStore reminderStore)
         {
@@ -26,7 +26,7 @@ namespace ReminderTelegramBot.Controllers
             _logger = logger;
             _reminderStore = reminderStore;
         }
-        
+
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Update update)
         {
@@ -35,16 +35,16 @@ namespace ReminderTelegramBot.Controllers
 
             var commands = _telegramService.GetCommands();
             var message = update.Message;
+            var callbackQuery = update.CallbackQuery;
 
             foreach (var command in commands)
             {
-                if (command.Contains(message))
+                if (command.Contains(message) || command.Contains(callbackQuery))
                 {
                     try
                     {
-                        await command.Execute(message, _telegramBotClient, _reminderStore);
+                        await command.Execute(message, _telegramBotClient, _reminderStore, callbackQuery);
                         _logger.LogInformation($"Command {command.Name} executed");
-                        _logger.LogInformation($"Update {Json(update)}");
                     }
                     catch (System.Exception ex)
                     {

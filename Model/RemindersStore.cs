@@ -1,5 +1,6 @@
 ﻿using ReminderTelegramBot.Model.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ReminderTelegramBot.Model
 {
@@ -9,15 +10,20 @@ namespace ReminderTelegramBot.Model
     public class RemindersStore : IReminderStore
     {
         private readonly List<Reminder> _reminders;
+        public RemindersStore()
+        {
+            if (_reminders == null) _reminders = new List<Reminder>();
+        }
         public void Set(Reminder reminder)
         {
-            if(reminder != null)
+            if (reminder != null && !_reminders.Contains(reminder))
                 _reminders.Add(reminder);
         }
+        public List<Reminder> GetAll() => _reminders;
 
-        public List<Reminder> GetAll()
+        public void ClearAll()
         {
-            return _reminders;
+            if (_reminders.Any()) _reminders.Clear();
         }
     }
 }
