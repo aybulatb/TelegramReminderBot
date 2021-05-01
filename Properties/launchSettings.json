@@ -2,13 +2,9 @@
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
-    "iis": {
-      "applicationUrl": "http://localhost/ReminderTelegramBot",
-      "sslPort": 0
-    },
     "iisExpress": {
       "applicationUrl": "http://localhost:9008",
-      "sslPort": 8443
+      "sslPort": 0
     }
   },
   "profiles": {
@@ -19,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "DevelopersGame.Web": {
+    "ReminderTelegramBot.Web": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

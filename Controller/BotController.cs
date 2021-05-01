@@ -44,6 +44,7 @@ namespace ReminderTelegramBot.Controllers
                     {
                         await command.Execute(message, _telegramBotClient, _reminderStore);
                         _logger.LogInformation($"Command {command.Name} executed");
+                        _logger.LogInformation($"Update {Json(update)}");
                     }
                     catch (System.Exception ex)
                     {
