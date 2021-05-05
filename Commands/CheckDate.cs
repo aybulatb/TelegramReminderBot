@@ -12,7 +12,7 @@ namespace ReminderTelegramBot.Commands
     /// </summary>
     public class CheckDate : TelegramCommand
     {
-        public override string Name => "/дата";
+        public override string Name => "дата";
 
         public override async Task Execute(Message message, ITelegramBotClient client, IReminderStore reminderStore, CallbackQuery callbackQuery = null)
         {

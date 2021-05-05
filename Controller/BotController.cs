@@ -59,7 +59,7 @@ namespace ReminderTelegramBot.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok("Started test");
+            return Ok("Bot is running");
         }
     }
 }

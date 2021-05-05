@@ -9,7 +9,7 @@ namespace ReminderTelegramBot.Commands
 {
     public class Help : TelegramCommand
     {
-        public override string Name => "/help";
+        public override string Name => "помощь";
         public override async Task Execute(Message message, ITelegramBotClient client, IReminderStore reminderStore, CallbackQuery callbackQuery = null)
         {
             var chatId = message.Chat.Id;
@@ -19,15 +19,14 @@ namespace ReminderTelegramBot.Commands
                 Keyboard = new[]
                 {
                     new[] {
-                        new KeyboardButton("/help"),
-                        new KeyboardButton("/start"),
-                        new KeyboardButton("/напомнить"),
-                        new KeyboardButton("/дата"),
-                        new KeyboardButton("/все записи")
+                        new KeyboardButton("помощь"),
+                        new KeyboardButton("напомнить"),
+                        new KeyboardButton("дата"),
+                        new KeyboardButton("все записи"),
+                        new KeyboardButton("удалить все")
                     }
                 },
-                ResizeKeyboard = true,
-                OneTimeKeyboard = true
+                ResizeKeyboard = true
             };
 
             await client.SendTextMessageAsync(chatId, "Это бот-напоминатель. Скажи ему о чём тебе нужно напомнить, и он сделает это.");

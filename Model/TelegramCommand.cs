@@ -22,6 +22,6 @@ namespace ReminderTelegramBot.Model
 
             return false;
         }
-        public bool Contains(CallbackQuery callbackQuery) => Name.Equals("/удалить все"); // todo придумать что-нибудь получше
+        public bool Contains(CallbackQuery callbackQuery) => Name.Equals("удалить все"); // todo придумать что-нибудь получше
     }
 }

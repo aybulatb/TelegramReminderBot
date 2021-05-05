@@ -2,8 +2,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Newtonsoft.Json.Serialization;
-using FluentValidation.AspNetCore;
 using ReminderTelegramBot.Model.Interfaces;
 using ReminderTelegramBot.Model;
 
@@ -19,12 +17,7 @@ namespace ReminderTelegramBot
             services.AddSingleton<IReminderStore, RemindersStore>();
 
             services.AddControllers()
-                    .AddNewtonsoftJson(options =>
-                    {
-                        options.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
-                        options.SerializerSettings.ContractResolver = new DefaultContractResolver();
-                    })
-                    .AddFluentValidation();
+                    .AddNewtonsoftJson();
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
