@@ -21,11 +21,10 @@ namespace ReminderTelegramBot.Commands
 
                 reminderStore.Set(new Reminder(text, date));
 
-                await client.SendTextMessageAsync(chatId, $"Окей бро, напомню {text}, дата {date}");
+                await client.SendTextMessageAsync(chatId, $"Я запомню, дата установлена: {date}");
             }
             else
             {
-                await client.SendTextMessageAsync(chatId, $"Броо, а че напомнить то?");
                 await client.SendTextMessageAsync(chatId, "введи напомнить + свой текст с временем в формате 00:00");
             }
         }

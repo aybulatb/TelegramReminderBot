@@ -5,7 +5,9 @@ namespace ReminderTelegramBot.Model.Interfaces
     public interface IReminderStore
     {
         void Set(Reminder reminder);
+
         List<Reminder> GetAll();
+
         void ClearAll();
     }
 }

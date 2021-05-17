@@ -16,10 +16,12 @@ namespace ReminderTelegramBot.Controllers
         private readonly ILogger<BotController> _logger;
         private readonly IReminderStore _reminderStore;
 
-        public BotController(ICommandsService telegramService,
+        public BotController(
+            ICommandsService telegramService,
             ITelegramBotClient telegramBotClient,
             ILogger<BotController> logger,
-            IReminderStore reminderStore)
+            IReminderStore reminderStore
+        )
         {
             _telegramService = telegramService;
             _telegramBotClient = telegramBotClient;

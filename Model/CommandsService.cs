@@ -7,6 +7,7 @@ namespace ReminderTelegramBot.Model
     public class CommandsService : ICommandsService
     {
         private readonly List<TelegramCommand> _commands;
+
         public CommandsService()
         {
             _commands = new List<TelegramCommand>
@@ -19,9 +20,7 @@ namespace ReminderTelegramBot.Model
                 new ClearAll()
             };
         }
-        public List<TelegramCommand> GetCommands()
-        {
-            return _commands;
-        }
+
+        public List<TelegramCommand> GetCommands() => _commands;
     }
 }
