@@ -2,11 +2,12 @@
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using ReminderTelegramBot.Commands;
+using ReminderTelegramBot.Model;
 using ReminderTelegramBot.Model.Interfaces;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 
-namespace ReminderTelegramBot.Model
+namespace ReminderTelegramBot.Services
 {
     public class CommandsService : ICommandsService
     {

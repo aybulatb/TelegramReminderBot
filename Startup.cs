@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ReminderTelegramBot.Model.Interfaces;
 using ReminderTelegramBot.Model;
+using ReminderTelegramBot.Services;
 
 namespace ReminderTelegramBot
 {
