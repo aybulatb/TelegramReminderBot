@@ -7,7 +7,7 @@ using ReminderTelegramBot.Model.Interfaces;
 
 namespace ReminderTelegramBot.Commands
 {
-    public class ClearAll : TelegramCommand
+    public class ClearAllCommand : TelegramCommand
     {
         public override string Name => "удалить все";
 

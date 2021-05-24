@@ -6,7 +6,7 @@ using ReminderTelegramBot.Model.Interfaces;
 
 namespace ReminderTelegramBot.Commands
 {
-    public class GetAllReminders : TelegramCommand
+    public class GetAllRemindersCommand : TelegramCommand
     {
         public override string Name => "все записи";
 

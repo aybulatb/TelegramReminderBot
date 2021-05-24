@@ -7,7 +7,7 @@ using ReminderTelegramBot.Model.Interfaces;
 
 namespace ReminderTelegramBot.Commands
 {
-    public class Help : TelegramCommand
+    public class HelpCommand : TelegramCommand
     {
         public override string Name => "/help";
 

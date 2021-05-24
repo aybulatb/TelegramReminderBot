@@ -6,7 +6,7 @@ using ReminderTelegramBot.Model.Interfaces;
 
 namespace ReminderTelegramBot.Commands
 {
-    public class SetReminder : TelegramCommand
+    public class SetReminderCommand : TelegramCommand
     {
         public override string Name => "напомнить";
 
@@ -25,7 +25,8 @@ namespace ReminderTelegramBot.Commands
             }
             else
             {
-                await client.SendTextMessageAsync(chatId, "введи напомнить + свой текст с временем в формате 00:00");
+                await client.SendTextMessageAsync(chatId, "введи напомнить + свой текст с временем в формате 00:00" +
+                    "\nНапример: напомнить сходить в барбершоп в 18:00");
             }
         }
     }

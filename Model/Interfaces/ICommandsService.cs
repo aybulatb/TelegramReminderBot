@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Telegram.Bot.Types;
 
 namespace ReminderTelegramBot.Model.Interfaces
 {
@@ -9,5 +11,7 @@ namespace ReminderTelegramBot.Model.Interfaces
         /// </summary>
         /// <returns></returns>
         List<TelegramCommand> GetCommands();
+
+        Task HandleUpdate(Update update);
     }
 }

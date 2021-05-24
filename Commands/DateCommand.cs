@@ -10,7 +10,7 @@ namespace ReminderTelegramBot.Commands
     /// <summary>
     /// Самая обычная команда, возвращающая время сейчас
     /// </summary>
-    public class CheckDate : TelegramCommand
+    public class DateCommand : TelegramCommand
     {
         public override string Name => "дата";
 
